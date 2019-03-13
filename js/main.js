@@ -58,7 +58,7 @@ function onResize(){
 
 // create atToolkitContext
 var arToolkitContext = new THREEx.ArToolkitContext({
-    cameraParametersUrl: THREEx.ArToolkitContext.baseURL + '../data/data/camera_para.dat',
+    cameraParametersUrl: THREEx.ArToolkitContext.baseURL + 'assets/camera_para.dat',
     detectionMode: 'mono',
     maxDetectionRate: 30,
     canvasWidth: 80*3,
@@ -84,7 +84,7 @@ var markerRoot = new THREE.Group
 scene.add(markerRoot)
 var artoolkitMarker = new THREEx.ArMarkerControls(arToolkitContext, markerRoot, {
     type : 'pattern',
-    patternUrl : THREEx.ArToolkitContext.baseURL + '../data/data/patt.hiro'
+    patternUrl : THREEx.ArToolkitContext.baseURL + 'assets/patt.hiro'
     // patternUrl : THREEx.ArToolkitContext.baseURL + '../data/data/patt.kanji'
 })
 // build a smoothedControls
