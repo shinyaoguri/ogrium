@@ -127,7 +127,7 @@ function tween1_back() {                              // 「帰り」のアニ�
 //===================================================================
 // マウスダウン（タップ）によるピッキング処理
 //===================================================================
-window.addEventListener("mousedown", function(ret) {
+window.addEventListener("touchstart", function(ret) {
     var mouseX = ret.clientX;                           // マウスのx座標
     var mouseY = ret.clientY;                           // マウスのy座標
     mouseX =  (mouseX / window.innerWidth)  * 2 - 1;    // -1 ～ +1 に正規化されたx座標
