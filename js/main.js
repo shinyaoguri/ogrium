@@ -83,7 +83,7 @@ scene.add(smoothedRoot)
 var smoothedControls = new THREEx.ArSmoothedControls(smoothedRoot, {
     lerpPosition: 0.4,
     lerpQuaternion: 0.3,
-    lerpScale: 10,
+    lerpScale: 1,
 })
 onRenderFcts.push(function (delta) {
     smoothedControls.update(markerRoot)
