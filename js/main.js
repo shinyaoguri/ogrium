@@ -85,7 +85,7 @@ var markerRoot = new THREE.Group
 scene.add(markerRoot)
 var artoolkitMarker = new THREEx.ArMarkerControls(arToolkitContext, markerRoot, {
     type : 'pattern',
-    patternUrl : 'assets/patt.hiro.txt'
+    patternUrl : 'assets/pattern-marker.patt'
     // patternUrl : THREEx.ArToolkitContext.baseURL + '../data/data/patt.kanji'
 })
 // build a smoothedControls
