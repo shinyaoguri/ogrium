@@ -59,11 +59,12 @@ function onResize(){
 
 // create atToolkitContext
 var arToolkitContext = new THREEx.ArToolkitContext({
+    debug: true,
     cameraParametersUrl: 'assets/camera_para.dat',
     detectionMode: 'mono',
-    maxDetectionRate: 30,
-    canvasWidth: 80*3,
-    canvasHeight: 60*3,
+    maxDetectionRate: 60,
+    canvasWidth: 640,
+    canvasHeight: 480,
 })
 // initialize it
 arToolkitContext.init(function onCompleted(){
@@ -75,7 +76,6 @@ onRenderFcts.push(function(){
     if( arToolkitSource.ready === false )	return
     arToolkitContext.update( arToolkitSource.domElement )
 })
-
 
 ////////////////////////////////////////////////////////////////////////////////
 //          Create a ArMarkerControls
