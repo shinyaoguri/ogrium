@@ -59,7 +59,6 @@ function onResize(){
 
 // create atToolkitContext
 var arToolkitContext = new THREEx.ArToolkitContext({
-    debug: true,
     cameraParametersUrl: 'assets/camera_para.dat',
     detectionMode: 'mono',
     maxDetectionRate: 60,
