@@ -37,8 +37,8 @@ var context = new THREEx.ArToolkitContext({           // arToolkitContextの作�
     detectionMode: "mono",                              // 検出モード（color/color_and_matrix/mono/mono_and_matrix）
     imageSmoothingEnabled: true,                        // 画像をスムージングするか（デフォルトfalse）
     maxDetectionRate: 60,                               // マーカの検出レート（デフォルト60）
-    canvasWidth: window.innerWidth,         // マーカ検出用画像の幅（デフォルト640）
-    canvasHeight: window.innerHeight,       // マーカ検出用画像の高さ（デフォルト480）
+    canvasWidth: source.parameters.sourceWidth,         // マーカ検出用画像の幅（デフォルト640）
+    canvasHeight: source.parameters.sourceHeight,       // マーカ検出用画像の高さ（デフォルト480）
 });
 context.init(function onCompleted(){                  // コンテクスト初期化が完了したら
     camera.projectionMatrix.copy(context.getProjectionMatrix());   // 射影行列をコピー
