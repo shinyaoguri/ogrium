@@ -7,7 +7,7 @@ var renderer = new THREE.WebGLRenderer({              // レンダラの作成
     alpha: true,                                        // canvasに透明度バッファを持たせる
 });
 renderer.setClearColor(new THREE.Color("black"), 0);  // レンダラの背景色
-renderer.setSize(640, 480);                           // レンダラのサイズ
+renderer.setSize(window.innerHeight, window.innerWidth);                           // レンダラのサイズ
 renderer.domElement.style.position = "absolute";      // レンダラの位置は絶対値
 renderer.domElement.style.top = "0px";                // レンダラの上端
 renderer.domElement.style.left = "0px";               // レンダラの左端
@@ -128,6 +128,7 @@ function tween1_back() {                              // 「帰り」のアニ�
 // マウスダウン（タップ）によるピッキング処理
 //===================================================================
 window.addEventListener("touchstart", function(ret) {
+    console.log("touchstart")
     var mouseX = ret.clientX;                           // マウスのx座標
     var mouseY = ret.clientY;                           // マウスのy座標
     mouseX =  (mouseX / window.innerWidth)  * 2 - 1;    // -1 ～ +1 に正規化されたx座標
