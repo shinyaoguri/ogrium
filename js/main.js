@@ -33,7 +33,7 @@ source.init(function onReady() {                      // ソースを初期化�
 //===================================================================
 var context = new THREEx.ArToolkitContext({           // arToolkitContextの作成
     debug: false,                                       // デバッグ用キャンバス表示（デフォルトfalse）
-    cameraParametersUrl: "camera_para.dat",             // カメラパラメータファイル
+    cameraParametersUrl: "assets/camera_para.dat",             // カメラパラメータファイル
     detectionMode: "mono",                              // 検出モード（color/color_and_matrix/mono/mono_and_matrix）
     imageSmoothingEnabled: true,                        // 画像をスムージングするか（デフォルトfalse）
     maxDetectionRate: 60,                               // マーカの検出レート（デフォルト60）
@@ -71,7 +71,7 @@ function onResize(){
 var marker1 = new THREE.Group();                      // マーカをグループとして作成
 var controls = new THREEx.ArMarkerControls(context, marker1, {    // マーカを登録
     type: "pattern",                                    // マーカのタイプ
-    patternUrl: "hiro.patt",                            // マーカファイル
+    patternUrl: "assets/pattern-marker.patt",                            // マーカファイル
 });
 scene.add(marker1);                                   // マーカをシーンに追加
 // モデル（メッシュ）
