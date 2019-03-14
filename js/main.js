@@ -85,12 +85,6 @@ var mesh1 = new THREE.Mesh(geo, mat);                 // メッシュを生成
 mesh1.name = "cube";                                  // メッシュの名前（後でピッキングで使う）
 mesh1.position.set(0, 0.5, 0);                        // 初期位置
 marker1.add(mesh1);                                   // メッシュをマーカに追加
-// マーカ隠蔽（cloaking）
-var videoTex = new THREE.VideoTexture(source.domElement);  // 映像をテクスチャとして取得
-videoTex.minFilter = THREE.NearestFilter;             // 映像テクスチャのフィルタ処理
-var cloak = new THREEx.ArMarkerCloak(videoTex);       // マーカ隠蔽(cloak)オブジェクト
-cloak.object3d.material.uniforms.opacity.value = 1.0; // cloakの不透明度
-marker1.add(cloak.object3d);                          // cloakをマーカに追加
 
 //===================================================================
 // Tween アニメーション
