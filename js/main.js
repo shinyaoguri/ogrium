@@ -85,7 +85,7 @@ var markerRoot = new THREE.Group
 scene.add(markerRoot)
 var artoolkitMarker = new THREEx.ArMarkerControls(arToolkitContext, markerRoot, {
     type: 'barcode',
-    value: 5
+    barcodeValue: 5
     // type : 'pattern',
     // patternUrl : 'assets/pattern-marker.patt'
     // patternUrl : THREEx.ArToolkitContext.baseURL + '../data/data/patt.kanji'
