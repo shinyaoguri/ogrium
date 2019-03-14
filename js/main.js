@@ -21,31 +21,21 @@ var scene = new THREE.Scene();
 //////////////////////////////////////////////////////////////////////////////////
 //		Initialize a basic camera
 //////////////////////////////////////////////////////////////////////////////////
-// Create a camera
 var camera = new THREE.Camera();
 scene.add(camera);
 ////////////////////////////////////////////////////////////////////////////////
 //          handle arToolkitSource
 ////////////////////////////////////////////////////////////////////////////////
 var arToolkitSource = new THREEx.ArToolkitSource({
-    // to read from the webcam
     sourceType: 'webcam',
-    // to read from an image
-    // sourceType : 'image',
-    // sourceUrl : THREEx.ArToolkitContext.baseURL + '../data/images/img.jpg',
-    // to read from a video
-    // sourceType : 'video',
-    // sourceUrl : THREEx.ArToolkitContext.baseURL + '../data/videos/headtracking.mp4',
 })
 arToolkitSource.init(function onReady() {
     onResize()
 })
-
 // windowサイズの変更
 window.addEventListener('resize', function () {
     onResize()
 })
-
 function onResize() {
     arToolkitSource.onResize()
     arToolkitSource.copySizeTo(renderer.domElement)
@@ -55,7 +45,7 @@ function onResize() {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-//          initialize arToolkitContext
+//          arToolkitContext
 ////////////////////////////////////////////////////////////////////////////////
 
 // create atToolkitContext
@@ -78,9 +68,8 @@ onRenderFcts.push(function () {
 })
 
 ////////////////////////////////////////////////////////////////////////////////
-//          Create a ArMarkerControls
+//          ArMarkerControls
 ////////////////////////////////////////////////////////////////////////////////
-
 var markerRoot = new THREE.Group
 scene.add(markerRoot)
 var artoolkitMarker = new THREEx.ArMarkerControls(arToolkitContext, markerRoot, {
@@ -104,7 +93,7 @@ onRenderFcts.push(function (delta) {
 //////////////////////////////////////////////////////////////////////////////////
 var arWorldRoot = smoothedRoot
 // add a torus knot
-var geometry = new THREE.CubeGeometry(1, 1, 1);
+var geometry = new THREE.CubeGeometry(10, 10, 10);
 var material = new THREE.MeshNormalMaterial({
     transparent: true,
     opacity: 0.5,
