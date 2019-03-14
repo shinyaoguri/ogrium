@@ -34,10 +34,10 @@ window.addEventListener('resize', function () {
     onResize()
 })
 function onResize() {
-    arToolkitSource.onResize()
-    arToolkitSource.copySizeTo(renderer.domElement)
+    arToolkitSource.onResizeElement()
+    arToolkitSource.copyElementSizeTo(renderer.domElement)
     if (arToolkitContext.arController !== null) {
-        arToolkitSource.copySizeTo(arToolkitContext.arController.canvas)
+        arToolkitSource.copyElementSizeTo(arToolkitContext.arController.canvas)
     }
 }
 
@@ -52,8 +52,8 @@ var arToolkitContext = new THREEx.ArToolkitContext({
     detectionMode: 'mono',
     imageSmoothingEnabled: true,
     maxDetectionRate: 60,
-    canvasWidth: window.innerWidth,
-    canvasHeight: window.innerHeight,
+    canvasWidth: arToolkitSource.parameters.sourceWidth,
+    canvasHeight: arToolkitSource.parameters.sourceHeight,
 })
 // initialize it
 arToolkitContext.init(function onCompleted() {
