@@ -47,11 +47,14 @@ context.init(function onCompleted(){                  // コンテクスト初�
 //===================================================================
 // リサイズ処理
 //===================================================================
-window.addEventListener("resize", function() {        // ウィンドウがリサイズされたら
-    onResize();                                         // リサイズ処理
+window.addEventListener("resize", function() {
+    onResize();
 });
 // リサイズ関数
 function onResize(){
+    renderer.setPixelRatio(window.devicePixelRatio)
+    renderer.setSize(window.innerWidth, window.innerHeight)
+
     source.onResizeElement();                           // トラッキングソースをリサイズ
     source.copyElementSizeTo(renderer.domElement);      // レンダラも同じサイズに
     if(context.arController !== null){                  // arControllerがnullでなければ
