@@ -7,7 +7,7 @@ var renderer = new THREE.WebGLRenderer({              // レンダラの作成
     alpha: true,                                        // canvasに透明度バッファを持たせる
 });
 renderer.setClearColor(new THREE.Color("black"), 0);  // レンダラの背景色
-renderer.setSize(window.innerWidth, window.innerHeight);                           // レンダラのサイズ
+renderer.setSize(window.innerHeight, window.innerWidth);                           // レンダラのサイズ
 renderer.domElement.style.position = "absolute";      // レンダラの位置は絶対値
 renderer.domElement.style.top = "0px";                // レンダラの上端
 renderer.domElement.style.left = "0px";               // レンダラの左端
@@ -55,10 +55,10 @@ function onResize(){
     renderer.setPixelRatio(window.devicePixelRatio)
     renderer.setSize(window.innerWidth, window.innerHeight)
 
-    source.onResize();                           // トラッキングソースをリサイズ
-    source.copySizeTo(renderer.domElement);      // レンダラも同じサイズに
+    source.onResizeElement();                           // トラッキングソースをリサイズ
+    source.copyElementSizeTo(renderer.domElement);      // レンダラも同じサイズに
     if(context.arController !== null){                  // arControllerがnullでなければ
-        source.copySizeTo(context.arController.canvas);  // それも同じサイズに
+        source.copyElementSizeTo(context.arController.canvas);  // それも同じサイズに
     }
 }
 
