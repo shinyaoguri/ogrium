@@ -83,7 +83,7 @@ scene.add(smoothedRoot)
 var smoothedControls = new THREEx.ArSmoothedControls(smoothedRoot, {
     lerpPosition: 0.4,
     lerpQuaternion: 0.3,
-    lerpScale: 1,
+    lerpScale: 10,
 })
 onRenderFcts.push(function (delta) {
     smoothedControls.update(markerRoot)
@@ -93,7 +93,7 @@ onRenderFcts.push(function (delta) {
 //////////////////////////////////////////////////////////////////////////////////
 var arWorldRoot = smoothedRoot
 // add a torus knot
-var geometry = new THREE.CubeGeometry(10, 10, 10);
+var geometry = new THREE.CubeGeometry(1, 1, 1);
 var material = new THREE.MeshNormalMaterial({
     transparent: true,
     opacity: 0.5,
