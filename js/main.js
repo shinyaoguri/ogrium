@@ -55,10 +55,10 @@ function onResize(){
     renderer.setPixelRatio(window.devicePixelRatio)
     renderer.setSize(window.innerWidth, window.innerHeight)
 
-    source.onResizeElement();                           // トラッキングソースをリサイズ
-    source.copyElementSizeTo(renderer.domElement);      // レンダラも同じサイズに
+    source.onResize();                           // トラッキングソースをリサイズ
+    source.copySizeTo(renderer.domElement);      // レンダラも同じサイズに
     if(context.arController !== null){                  // arControllerがnullでなければ
-        source.copyElementSizeTo(context.arController.canvas);  // それも同じサイズに
+        source.copySizeTo(context.arController.canvas);  // それも同じサイズに
     }
 }
 
