@@ -60,10 +60,11 @@ function onResize(){
 // create atToolkitContext
 var arToolkitContext = new THREEx.ArToolkitContext({
     cameraParametersUrl: 'assets/camera_para.dat',
-    detectionMode: 'mono',
+    detectionMode: 'color_and_matrix',
+    matrixCodeType: '3x3',
     maxDetectionRate: 60,
-    canvasWidth: 240,
-    canvasHeight: 180,
+    canvasWidth: 640,
+    canvasHeight: 480,
 })
 // initialize it
 arToolkitContext.init(function onCompleted(){
