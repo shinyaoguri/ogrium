@@ -54,7 +54,6 @@ var arToolkitContext = new THREEx.ArToolkitContext({
 })
 // initialize it
 arToolkitContext.init(function onCompleted() {
-    // copy projection matrix to camera
     camera.projectionMatrix.copy(arToolkitContext.getProjectionMatrix());
 })
 // update artoolkit on every frame
@@ -74,8 +73,8 @@ var artoolkitMarker = new THREEx.ArMarkerControls(arToolkitContext, markerRoot, 
 var smoothedRoot = new THREE.Group()
 scene.add(smoothedRoot)
 var smoothedControls = new THREEx.ArSmoothedControls(smoothedRoot, {
-    lerpPosition: 0.4,
-    lerpQuaternion: 0.3,
+    lerpPosition: 0.1,
+    lerpQuaternion: 0.1,
     lerpScale: 1,
 })
 onRenderFcts.push(function (delta) {
