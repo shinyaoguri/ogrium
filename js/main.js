@@ -73,8 +73,8 @@ var artoolkitMarker = new THREEx.ArMarkerControls(arToolkitContext, markerRoot, 
 var smoothedRoot = new THREE.Group()
 scene.add(smoothedRoot)
 var smoothedControls = new THREEx.ArSmoothedControls(smoothedRoot, {
-    lerpPosition: 0.1,
-    lerpQuaternion: 0.1,
+    lerpPosition: 0.4,
+    lerpQuaternion: 0.3,
     lerpScale: 1,
 })
 onRenderFcts.push(function (delta) {
