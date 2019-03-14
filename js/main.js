@@ -109,9 +109,9 @@ var mesh = new THREE.Mesh(geometry, material);
 mesh.position.y = 0.5
 arWorldRoot.add(mesh);
 
-onRenderFcts.push(function () {
-    mesh.rotation.x += 0.1
-})
+// onRenderFcts.push(function () {
+//     mesh.rotation.x += 0.1
+// })
 //////////////////////////////////////////////////////////////////////////////////
 //		render the whole thing on the page
 //////////////////////////////////////////////////////////////////////////////////
