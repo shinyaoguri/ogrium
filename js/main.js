@@ -7,7 +7,7 @@ var renderer = new THREE.WebGLRenderer({              // レンダラの作成
     alpha: true,                                        // canvasに透明度バッファを持たせる
 });
 renderer.setClearColor(new THREE.Color("black"), 0);  // レンダラの背景色
-renderer.setSize(window.innerHeight, window.innerWidth);                           // レンダラのサイズ
+renderer.setSize(window.innerWidth, window.innerHeight);                           // レンダラのサイズ
 renderer.domElement.style.position = "absolute";      // レンダラの位置は絶対値
 renderer.domElement.style.top = "0px";                // レンダラの上端
 renderer.domElement.style.left = "0px";               // レンダラの左端
