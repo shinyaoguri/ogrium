@@ -122,8 +122,10 @@ onRenderFcts.push(function () {
 // レンダリングループ
 //===================================================================
 var lastTimeMsec = null
-function renderScene() {
-    requestAnimationFrame(renderScene)
+requestAnimationFrame(function animate(nowMsec) {
+    // keep looping
+    requestAnimationFrame(animate);
+    // measure time
     lastTimeMsec = lastTimeMsec || nowMsec - 1000 / 60
     var deltaMsec = Math.min(200, nowMsec - lastTimeMsec)
     lastTimeMsec = nowMsec
@@ -131,5 +133,4 @@ function renderScene() {
     onRenderFcts.forEach(function (onRenderFct) {
         onRenderFct(deltaMsec / 1000, nowMsec / 1000)
     })
-}
-renderScene()
+})
