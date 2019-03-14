@@ -1,13 +1,12 @@
-
-////////////////////////////////////////////////////////////////////////////////
-//          基本設定
-////////////////////////////////////////////////////////////////////////////////
+//===================================================================
+// three.js の各種設定
+//===================================================================
+var scene = new THREE.Scene();
 var renderer = new THREE.WebGLRenderer({
     antialias: true,
     alpha: true
 });
 renderer.setClearColor(new THREE.Color('lightgrey'), 0)
-// renderer.setPixelRatio( 1/2 );
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.domElement.style.position = 'absolute'
 renderer.domElement.style.top = '0px'
@@ -15,13 +14,15 @@ renderer.domElement.style.left = '0px'
 document.body.appendChild(renderer.domElement);
 // array of functions for the rendering loop
 var onRenderFcts = [];
-// init scene and camera
-var scene = new THREE.Scene();
 
 
 var camera = new THREE.Camera();
 scene.add(camera);
 
+
+//===================================================================
+// ARマーカをトラッキングする対象
+//===================================================================
 var arToolkitSource = new THREEx.ArToolkitSource({
     sourceType: 'webcam',
 })
@@ -40,14 +41,16 @@ function onResize() {
     }
 }
 
-////////////////////////////////////////////////////////////////////////////////
-//          AR認識
-////////////////////////////////////////////////////////////////////////////////
+//===================================================================
+// ARマーカ検出設定
+//===================================================================
 
 // create atToolkitContext
 var arToolkitContext = new THREEx.ArToolkitContext({
+    debug: true,
     cameraParametersUrl: 'assets/camera_para.dat',
     detectionMode: 'mono',
+    imageSmoothingEnabled: true,
     maxDetectionRate: 60,
     canvasWidth: window.innerWidth,
     canvasHeight: window.innerHeight,
@@ -62,13 +65,17 @@ onRenderFcts.push(function () {
     arToolkitContext.update(arToolkitSource.domElement)
 })
 
-var markerRoot = new THREE.Group
+//===================================================================
+// コンテンツ
+//===================================================================
+var markerRoot = new THREE.Group()
 scene.add(markerRoot)
 var artoolkitMarker = new THREEx.ArMarkerControls(arToolkitContext, markerRoot, {
     type: 'pattern',
     patternUrl: 'assets/pattern-marker.patt',
     minConfidence: '0.7'
 })
+
 // build a smoothedControls
 var smoothedRoot = new THREE.Group()
 scene.add(smoothedRoot)
@@ -81,9 +88,6 @@ onRenderFcts.push(function (delta) {
     smoothedControls.update(markerRoot)
 })
 
-//////////////////////////////////////////////////////////////////////////////////
-//		コンテンツ
-//////////////////////////////////////////////////////////////////////////////////
 
 var arWorldRoot = smoothedRoot
 // add a torus knot
@@ -104,9 +108,6 @@ mesh.position.y = 0.5
 arWorldRoot.add(mesh);
 
 
-//////////////////////////////////////////////////////////////////////////////////
-//		コンテンツの描画
-//////////////////////////////////////////////////////////////////////////////////
 
 // 負荷表示
 var stats = new Stats();
@@ -117,12 +118,12 @@ onRenderFcts.push(function () {
     stats.update();
 })
 
-// 描画
+//===================================================================
+// レンダリングループ
+//===================================================================
 var lastTimeMsec = null
-requestAnimationFrame(function animate(nowMsec) {
-    // keep looping
-    requestAnimationFrame(animate);
-    // measure time
+function renderScene() {
+    requestAnimationFrame(renderScene)
     lastTimeMsec = lastTimeMsec || nowMsec - 1000 / 60
     var deltaMsec = Math.min(200, nowMsec - lastTimeMsec)
     lastTimeMsec = nowMsec
@@ -130,4 +131,5 @@ requestAnimationFrame(function animate(nowMsec) {
     onRenderFcts.forEach(function (onRenderFct) {
         onRenderFct(deltaMsec / 1000, nowMsec / 1000)
     })
-})
+}
+renderScene()
