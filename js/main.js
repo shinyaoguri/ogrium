@@ -62,6 +62,7 @@ var context = new THREEx.ArToolkitContext({
 console.log(window.innerHeight + ' ' + window.innerWidth)
 context.init(function onCompleted(){
     camera.projectionMatrix.copy(context.getProjectionMatrix())
+    onResize()
 })
 
 
