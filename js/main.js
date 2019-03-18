@@ -24,9 +24,9 @@ scene.add(light)
 
 // リサイズ関数
 function onResize(){
+    console.log("onResize")
     renderer.setPixelRatio(window.devicePixelRatio)
     renderer.setSize(window.innerWidth, window.innerHeight)
-
     source.onResizeElement()
     source.copyElementSizeTo(renderer.domElement)
     if(context.arController !== null){
@@ -75,16 +75,16 @@ var controls = new THREEx.ArMarkerControls(context, marker1, {
 })
 scene.add(marker1)
 // モデル（メッシュ）
-var geo = new THREE.CubeGeometry(1, 1, 1);            // cube ジオメトリ（サイズは 1x1x1）
-var mat = new THREE.MeshNormalMaterial({              // マテリアルの作成
-    transparent: true,                                  // 透過
-    opacity: 0.5,                                       // 不透明度
-    side: THREE.DoubleSide,                             // 内側も描く
-});
-var mesh1 = new THREE.Mesh(geo, mat);                 // メッシュを生成
-mesh1.name = "cube";                                  // メッシュの名前（後でピッキングで使う）
-mesh1.position.set(0, 0.5, 0);                        // 初期位置
-marker1.add(mesh1);                                   // メッシュをマーカに追加
+var geo = new THREE.CubeGeometry(1, 1, 1)
+var mat = new THREE.MeshNormalMaterial({
+    transparent: true,
+    opacity: 0.5,
+    side: THREE.DoubleSide,
+})
+var mesh1 = new THREE.Mesh(geo, mat)
+mesh1.name = "cube"
+mesh1.position.set(0, 0.5, 0)
+marker1.add(mesh1)
 
 //===================================================================
 // Tween アニメーション
@@ -158,7 +158,9 @@ function picked(objName) {
 //===================================================================
 function renderScene() {                              // レンダリング関数
     requestAnimationFrame(renderScene);                 // ループを要求
-    if(source.ready === false)    { return; }             // メディアソースの準備ができていなければ抜ける
+    if(source.ready === false){
+        return
+    }
     context.update(source.domElement);                  // ARToolkitのコンテキストを更新
     TWEEN.update();                                     // Tweenアニメーションを更新
     renderer.render(scene, camera);                     // レンダリング実施
