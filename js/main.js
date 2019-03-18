@@ -42,6 +42,10 @@ window.addEventListener("resize", function() {
 //===================================================================
 var source = new THREEx.ArToolkitSource({
     sourceType: "webcam",
+    sourceWidth: window.innerWidth,
+    sourceHeight: window.innerHeight,
+    displayWidth: window.innerWidth,
+    displayHeight: window.innerHeight,
 })
 source.init(function onReady() {
     onResize()
@@ -51,7 +55,7 @@ source.init(function onReady() {
 // arToolkitContext（カメラパラメータ、マーカ検出設定）
 //===================================================================
 var context = new THREEx.ArToolkitContext({
-    debug: false,
+    debug: true,
     cameraParametersUrl: "assets/camera_para.dat",
     detectionMode: "mono",
     imageSmoothingEnabled: true,
