@@ -42,10 +42,11 @@ window.addEventListener("resize", function() {
 //===================================================================
 var source = new THREEx.ArToolkitSource({
     sourceType: "webcam",
+    sourceUrl : null,
     sourceWidth: window.innerWidth,
     sourceHeight: window.innerHeight,
     displayWidth: window.innerWidth,
-    displayHeight: window.innerHeight,
+    displayHeight: window.innerHeight
 })
 source.init(function onReady() {
     onResize()
