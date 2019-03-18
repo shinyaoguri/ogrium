@@ -41,12 +41,7 @@ window.addEventListener("resize", function() {
 // arToolkitSource（マーカトラッキングするメディアソース）
 //===================================================================
 var source = new THREEx.ArToolkitSource({
-    sourceType: "webcam",
-    sourceUrl : null,
-    sourceWidth: window.innerWidth,
-    sourceHeight: window.innerHeight,
-    displayWidth: window.innerWidth,
-    displayHeight: window.innerHeight
+    sourceType: "webcam"
 })
 source.init(function onReady() {
     onResize()
