@@ -24,7 +24,7 @@ scene.add(light)
 
 // リサイズ関数
 function onResize(){
-    console.log("onResize")
+    console.log("onResize" + window.innerHeight + ' ' + window.innerWidth)
     renderer.setPixelRatio(window.devicePixelRatio)
     renderer.setSize(window.innerWidth, window.innerHeight)
     source.onResizeElement()
@@ -59,7 +59,6 @@ var context = new THREEx.ArToolkitContext({
     canvasWidth: window.innerWidth,
     canvasHeight: window.innerHeight
 })
-console.log(window.innerHeight + ' ' + window.innerWidth)
 context.init(function onCompleted(){
     camera.projectionMatrix.copy(context.getProjectionMatrix())
     onResize()
