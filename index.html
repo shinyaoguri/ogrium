@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>WebAR</title>
-		<script src="js/aframe.min.js"></script>
+		<script src="js/aframe-v0.8.0.min.js"></script>
 		<script src="js/aframe-ar.min.js"></script>
 	</head>
 	<body style='margin : 0px; overflow: hidden;'>
@@ -13,14 +13,16 @@
 			 vr-mode-ui="enabled:false"
 	>
 		<a-marker type="pattern" url="assets/pattern-marker.patt">
-			<a-box position="0 0.5 0" wireframe="true"></a-box>
+			<a-box position="0 0.5 0" wireframe="true">
+			</a-box>
 		</a-marker>
+
+		<a-marker type="pattern" url="assets/pattern-marker_v2.patt">
+			<a-box position="0 0.5 0" wireframe="true">
+			</a-box>
+		</a-marker>
+
 		<a-entity camera></a-entity>
 	</a-scene>
-
-	<!--<script src="js/three.min.js"></script>-->
-	<!--<script src="js/ar.min.js"></script>-->
-	<!--<script src="js/Tween.js"></script>-->
-	<!--<script src="js/main.js?ver=0.0.1"></script>-->
 	</body>
 </html>

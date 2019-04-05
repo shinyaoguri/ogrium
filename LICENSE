@@ -19,3 +19,9 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+-----
+This program uses the following program
+
+- [aframe.min.js](js/aframe.min.js) from [A-FRAME v0.8.0](https://github.com/aframevr/aframe)
+- [aframe-ar.min.js](js/aframe-ar.min.js) from [AR.js]()
